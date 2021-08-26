@@ -12,3 +12,10 @@ const elem = (
 const root = document.getElementById("App");
 
 ReactDOM.render(elem, root);
+
+console.log(
+  "Run %c%s%c to see some cool shit happen.",
+  "font-weight:bold;font-family:fira code,source code pro,menlo,monospace",
+  "dispatcher.params('set', { _embed: 'comments' })",
+  ""
+);

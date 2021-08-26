@@ -14,8 +14,8 @@ const createParams = ({ args = {}, method = "set", ...state }) => {
   const params = new URLSearchParams(`${state?.params || ""}`);
   if (["set", "append"].includes(method))
     for (const key in args) {
-      if (args?.[key]) params[method](key, args[key]);
-      else params.delete(key);
+      if ([null, undefined].includes(args[key])) params.delete(key);
+      else params[method](key, args[key]);
     }
   state.params = params;
   return state;

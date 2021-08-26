@@ -6,11 +6,14 @@ import "./style.scss";
 const Comment = ({ email, ...c }) => (
   <li className="Comments-item">
     <small>
-      <a href={`mailto:${email}`}>{email}</a> left a comment on post{" "}
-      <small>
-        <code>{c.postId}</code>
-      </small>
-      :<p>{c.body}</p>
+      <b>
+        <a href={`mailto:${email}`}>{email}</a> left a comment on post{" "}
+        <small>
+          <code>{c.postId}</code>
+        </small>
+        :
+      </b>
+      <p style={{ marginTop: ".5em" }}>{c.body}</p>
     </small>
   </li>
 );
@@ -24,7 +27,7 @@ const Comments = () => {
       <b>Comments</b>
       <ul className="Comments">
         {comments.map((c) => (
-          <Comment {...c} />
+          <Comment key={`comment-${c.id}`} {...c} />
         ))}
       </ul>
     </React.Fragment>

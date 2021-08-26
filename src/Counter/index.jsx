@@ -12,10 +12,15 @@ const Counter = () => {
   return (
     <React.Fragment>
       <div className="topBar">
-        <span>
-          <b>Count</b>: <code>{state.id}</code>
+        <span style={{ whiteSpace: "nowrap", marginRight: ".5em" }}>
+          <b>ID</b>:{" "}
+          <small>
+            <code>{state.id}</code>
+          </small>
         </span>
-        <span style={{ textTransform: "capitalize" }}>{state.text}</span>
+        <span style={{ textTransform: "capitalize", textAlign: "right" }}>
+          {state.text}
+        </span>
       </div>
       <hr />
       <div className="buttonBar">

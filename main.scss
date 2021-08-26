@@ -33,7 +33,8 @@ body {
     box-shadow: inset 0 0 0 .8px rgba(127.5, 127.5, 127.5, .33);
   }
   button,
-  input {
+  input[type=text],
+  input[type=number] {
     color: inherit;
     background: transparent;
     border-radius: 4px;
@@ -46,9 +47,14 @@ body {
       opacity: .75;
     }
   }
+  label {
+    display: inline-flex;
+    align-items: center;
+    font-size: smaller;
+  }
   .topBar {
     display: flex;
-    >:last-child {
+    >:last-child:not(:only-child) {
       margin-left: auto;
     }
   }

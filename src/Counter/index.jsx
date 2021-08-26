@@ -8,7 +8,7 @@ import ResetButton from "./ResetButton";
 import RandomValue from "./RandomValue";
 
 const Counter = () => {
-  const { state } = useContext(ContextState);
+  const { state, dispatch } = useContext(ContextState);
   return (
     <React.Fragment>
       <div className="topBar">
@@ -18,15 +18,23 @@ const Counter = () => {
             <code>{state.id}</code>
           </small>
         </span>
-        <span style={{ textTransform: "capitalize", textAlign: "right" }}>
-          {state.text}
-        </span>
       </div>
       <hr />
       <div className="buttonBar">
         <StepButtons />
         <RandomValue />
         <SetterInput />
+        <label>
+          <input
+            type="checkbox"
+            onClick={() =>
+              dispatch.params("set", {
+                _embed: state.params.has("_embed") ? null : "comments"
+              })
+            }
+          />
+          Comments
+        </label>
         <ResetButton />
       </div>
     </React.Fragment>

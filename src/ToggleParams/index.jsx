@@ -7,7 +7,7 @@ const ToggleParams = () => {
   window.dispatcher = dispatch;
   return (
     <div>
-      <b>Params</b>: {console.log(state.params.length)}
+      <b>Params</b>:
       {![...state.params].length || (
         <small>
           <code>{`${state.params}`}</code>

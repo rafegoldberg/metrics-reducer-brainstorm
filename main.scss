@@ -7,7 +7,6 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
   min-width: 100vw;
   font-family: sans-serif;
@@ -22,11 +21,18 @@ body {
 #App {
   width: 100vw;
   max-width: 48rem;
-  box-sizing: border-box;
+  margin: auto;
   padding: 0.66em;
+  box-sizing: border-box;
   hr {
     border: solid #ddd;
     border-width: .8px 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   code {
     font-family: menlo, monospace;

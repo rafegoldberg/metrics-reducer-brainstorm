@@ -5,6 +5,7 @@ export const ContextState = React.createContext();
 const initialState = {
   id: 26,
   text: "Hi World",
+  data: {},
   path: "posts",
   params: new URLSearchParams()
 };
@@ -22,6 +23,8 @@ const createParams = ({ args = {}, method = "set", ...state }) => {
 
 function stateReducer(state = initialState, { type, payload, ...args }) {
   switch (type) {
+    case "data":
+      return { ...state, data: payload || {} };
     case "params":
       return createParams({ args, method: payload, ...state });
     case "text":
@@ -40,10 +43,14 @@ function stateReducer(state = initialState, { type, payload, ...args }) {
 
 export default function ContextWrap({ children }) {
   const [state, dispatch] = useReducer(stateReducer, initialState);
-  ["params", "text", "set", "increment", "decrement"].forEach((type) => {
-    dispatch[type] = (payload, args = {}) =>
-      dispatch({ type, payload, ...args });
-  });
+  ["data", "params", "text", "set", "increment", "decrement"].forEach(
+    (type) => {
+      dispatch[type] = (payload, args = {}) => {
+        // console.log("DISPATCH SHORTHAND");
+        dispatch({ type, payload, ...args });
+      };
+    }
+  );
   const val = useMemo(() => {
     return { state, dispatch };
   }, [state, dispatch]);

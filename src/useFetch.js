@@ -16,7 +16,10 @@ export default function useFetch() {
   const { data, error } = useSWR(`${path}/${id}?${params}`, get);
   const isLoading = !error && !data;
   useEffect(() => {
-    if (!isLoading) dispatch.text(data?.title);
+    if (!isLoading) {
+      dispatch.data({ ...data, isLoading });
+      dispatch({ type: "text", payload: data?.title });
+    }
   }, [state.id, isLoading, data, dispatch]);
   return { ...data, isLoading };
 }

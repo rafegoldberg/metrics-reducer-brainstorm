@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
-import { ContextState } from '../Context';
+import { ContextState } from "../Context";
 
 const SetterInput = () => {
   const {
-    state: { count },
+    state: { id },
     dispatch,
     ...rest
   } = useContext(ContextState);
@@ -14,11 +14,11 @@ const SetterInput = () => {
       max={100}
       min={-100}
       step={3}
-      value={count}
+      value={id}
       onInput={(e) =>
-        dispatch({ type: 'set', payload: parseInt(e.target.value) })
+        dispatch({ type: "set", payload: parseInt(e.target.value) })
       }
-      style={{ flex: '0 1', minWidth: 42 }}
+      style={{ flex: "0 1", minWidth: 42 }}
     />
   );
 };

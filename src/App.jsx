@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useContext } from "react";
 
-import StateContext from './Context';
-import Counter from './Counter';
-import Fetcher from './Fetcher';
+import Counter from "./Counter";
+import ToggleParams from "./ToggleParams";
+
+import Fetcher from "./Fetcher";
+// import useFetch from "./useFetch";
+// import { ContextState } from "./Context";
 
 const App = () => {
+  // const { state } = useContext(ContextState);
+  // useFetch(state.id);
   return (
-    <StateContext>
+    <React.Fragment>
       <Fetcher />
+      <ToggleParams />
+      <hr />
       <Counter type={false} />
-    </StateContext>
+    </React.Fragment>
   );
 };
 

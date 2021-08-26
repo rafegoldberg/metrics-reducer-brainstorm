@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from "react";
 
-import useFetch from '../useFetch';
-import { ContextState } from '../Context';
+import useFetch from "../useFetch";
+import { ContextState } from "../Context";
 
 const Fetcher = () => {
-  const { state, dispatch } = useContext(ContextState);
-  const data = useFetch(state.count);
+  const { state } = useContext(ContextState);
+  useFetch(state.count);
   return null;
 };
 

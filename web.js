@@ -1,9 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import App from './src/App';
+import App from "./src/App";
+import StateContext from "./src/Context";
 
-const elem = <App />;
-const root = document.getElementById('App');
+const elem = (
+  <StateContext>
+    <App />
+  </StateContext>
+);
+const root = document.getElementById("App");
 
 ReactDOM.render(elem, root);

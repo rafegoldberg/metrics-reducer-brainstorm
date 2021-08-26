@@ -11,14 +11,14 @@ const Counter = () => {
   const { state, dispatch } = useContext(ContextState);
   return (
     <React.Fragment>
-      <div className="topBar">
+      <small className="topBar">
         <span style={{ whiteSpace: "nowrap", marginRight: ".5em" }}>
           <b>ID</b>:{" "}
           <small>
             <code>{state.id}</code>
           </small>
         </span>
-      </div>
+      </small>
       <hr />
       <div className="buttonBar">
         <StepButtons />
@@ -27,7 +27,8 @@ const Counter = () => {
         <label>
           <input
             type="checkbox"
-            onClick={() =>
+            checked={state.params.has("_embed")}
+            onChange={() =>
               dispatch.params("set", {
                 _embed: state.params.has("_embed") ? null : "comments"
               })

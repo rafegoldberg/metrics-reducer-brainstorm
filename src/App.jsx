@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { ContextState } from "./Context";
 import useFetch from "./useFetch";
@@ -8,16 +8,26 @@ import ToggleParams from "./ToggleParams";
 import Comments from "./Comments";
 
 const App = () => {
-  const { state } = useContext(ContextState);
-  useFetch(state.count);
+  const { state, dispatch } = useContext(ContextState);
+  const { isLoading, ...data } = useFetch(state.count);
+
+  useEffect(() => {
+    if (!isLoading) {
+      dispatch.data({ ...data, isLoading });
+      dispatch({ type: "text", payload: data?.title });
+    }
+  }, [state.id, state.params, isLoading, dispatch]);
+
   return (
     <React.Fragment>
-      <hr />
-      <ToggleParams />
+      <h3 style={{ margin: 0, textTransform: "capitalize" }}>
+        {state.data?.title}
+      </h3>
       <hr />
       <Counter type={false} />
       <hr />
-      <h3 style={{ textTransform: "capitalize" }}>{state.data?.title}</h3>
+      <ToggleParams />
+      <hr />
       <Comments />
     </React.Fragment>
   );

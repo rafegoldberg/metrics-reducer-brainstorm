@@ -13,10 +13,9 @@ const SetterInput = () => {
       type="number"
       max={100}
       min={-100}
-      step={3}
       value={id}
       onInput={(e) =>
-        dispatch({ type: "set", payload: parseInt(e.target.value) })
+        dispatch({ type: "set", payload: parseInt(e.target.value, 10) })
       }
       style={{ flex: "0 1", minWidth: 42 }}
     />

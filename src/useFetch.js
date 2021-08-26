@@ -15,11 +15,11 @@ export default function useFetch() {
   const { path, id, params } = state;
   const { data, error } = useSWR(`${path}/${id}?${params}`, get);
   const isLoading = !error && !data;
-  useEffect(() => {
-    if (!isLoading) {
-      dispatch.data({ ...data, isLoading });
-      dispatch({ type: "text", payload: data?.title });
-    }
-  }, [state.id, isLoading, data, dispatch]);
+  // useEffect(() => {
+  //   if (!isLoading) {
+  //     dispatch.data({ ...data, isLoading });
+  //     dispatch({ type: "text", payload: data?.title });
+  //   }
+  // }, [state.id, isLoading, data, dispatch]);
   return { ...data, isLoading };
 }

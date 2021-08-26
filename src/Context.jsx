@@ -3,7 +3,7 @@ import React, { useMemo, useReducer } from "react";
 export const ContextState = React.createContext();
 
 const initialState = {
-  id: 26,
+  id: 1,
   text: "Hi World",
   data: {},
   path: "posts",

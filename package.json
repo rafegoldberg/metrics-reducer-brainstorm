@@ -1,0 +1,27 @@
+{
+  "name": "metrics-reducer-brainstorm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "babel-preset-react-app": "10.0.0",
+    "parcel-bundler": "^1.6.1",
+    "parcel-plugin-svgr-patched-v2": "5.4.0",
+    "postcss-modules": "4.2.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router-dom": "5.2.0",
+    "swr": "0.5.6"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "keywords": []
+}

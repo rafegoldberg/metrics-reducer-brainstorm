@@ -6,14 +6,14 @@ const ToggleParams = () => {
   const { state, dispatch } = useContext(ContextState);
   window.dispatcher = dispatch;
   return (
-    <div>
-      <b>Params</b>:
+    <small>
+      <b>Params</b>:{" "}
       {![...state.params].length || (
         <small>
           <code>{`${state.params}`}</code>
         </small>
       )}
-    </div>
+    </small>
   );
 };
 

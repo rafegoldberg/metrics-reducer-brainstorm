@@ -3,10 +3,10 @@ import useSWR from "swr";
 
 import { ContextState } from "./Context";
 
-const get = (path) => {
-  path = `https://jsonplaceholder.typicode.com/${path}`;
-  return fetch(path).then((res) => res.json());
-};
+const get = (path) =>
+  fetch(`https://jsonplaceholder.typicode.com/${path}`).then((res) =>
+    res.json()
+  );
 
 export default function useFetch() {
   const { state } = useContext(ContextState);

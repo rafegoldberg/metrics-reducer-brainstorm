@@ -46,7 +46,6 @@ export default function ContextWrap({ children }) {
   ["data", "params", "text", "set", "increment", "decrement"].forEach(
     (type) => {
       dispatch[type] = (payload, args = {}) => {
-        // console.log("DISPATCH SHORTHAND");
         dispatch({ type, payload, ...args });
       };
     }

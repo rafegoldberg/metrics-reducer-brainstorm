@@ -19,6 +19,8 @@ const Counter = () => {
         <SetterInput />
         <label>
           <input
+            id="comments"
+            name="comments"
             type="checkbox"
             checked={state.params.has("_embed")}
             onChange={() =>

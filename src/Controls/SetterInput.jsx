@@ -3,17 +3,15 @@ import React, { useContext } from "react";
 import { ContextState } from "../Context";
 
 const SetterInput = () => {
-  const {
-    state: { id },
-    dispatch,
-    ...rest
-  } = useContext(ContextState);
+  const { state, dispatch } = useContext(ContextState);
   return (
     <input
+      id="id"
+      name="id"
       type="number"
       max={100}
       min={-100}
-      value={id}
+      value={state.id}
       onInput={(e) =>
         dispatch({ type: "set", payload: parseInt(e.target.value, 10) })
       }

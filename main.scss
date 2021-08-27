@@ -13,11 +13,17 @@ body {
     min-height: 100vh;
     > h1 {
       margin: auto !important;
+      padding: 1rem 0;
     }
     > hr {
       min-width: 100%;
-      &:last-child {
+      &:first-of-type {
+        margin-top: 0;
+      }
+      &:last-of-type {
         margin-bottom: 0;
+      }
+      &:last-child {
         opacity: 0;
       }
     }
@@ -34,9 +40,8 @@ body {
   width: 100vw;
   max-width: 48rem;
   margin: auto;
-  padding: 0.66rem;
-  padding-bottom: 0;
   box-sizing: border-box;
+  padding: 0 1rem;
   hr {
     border: solid #ddd;
     border-width: .8px 0 0;
@@ -68,8 +73,16 @@ body {
     padding: .25rem .5rem;
     min-width: 2rem;
     outline: none;
-    &:not(:hover),
-    &:not(:focus) {
+    &:focus {
+      color: #018ef5;
+      border-color: #018ef5;
+    }
+  }
+  button,
+  input[type=text],
+  input[type=number],
+  label {
+    &:not(:hover):not(:focus):not(:focus-within) {
       opacity: .75;
     }
   }
@@ -81,6 +94,7 @@ body {
     background: var(--bg, transparent);
     box-shadow: 0 0 0 1px var(--bg, transparent), 0 0 0 1.75px var(--edge, transparent);
     padding: 0 3px;
+    transition: .3s ease;
     >input:first-child {
       margin-right: 0.33rem;
     }
@@ -92,9 +106,6 @@ body {
   .topBar {
     display: flex;
     gap: 1rem;
-    // >:last-child:not(:only-child) {
-    //   margin-left: auto;
-    // }
   }
   .buttonBar {
     display: flex;

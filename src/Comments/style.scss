@@ -1,7 +1,13 @@
 .Comments{
   list-style: none;
-  margin-top: .5rem;
+  margin: .5rem 0 0;
   padding-left: 0;
+  p {
+    margin: .5rem 0 1rem;
+  }
+  &Title {
+    margin-top: 1rem;
+  }
   &-item {
     & + & {
       padding-top: 1rem;

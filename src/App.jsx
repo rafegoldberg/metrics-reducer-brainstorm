@@ -25,8 +25,8 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <h1 style={{ margin: 0, textTransform: "capitalize" }}>
-        {state.data?.title}
+      <h1 style={{ textTransform: "capitalize" }}>
+        {state.data?.title || <label for="id">(Set an ID)</label>}
       </h1>
       <Controls type={false} />
       <Comments />

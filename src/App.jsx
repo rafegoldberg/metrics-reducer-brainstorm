@@ -3,8 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { ContextState } from "./Context";
 import useFetch from "./useFetch";
 
-import Counter from "./Counter";
-import ToggleParams from "./ToggleParams";
+import Controls from "./Controls";
 import Comments from "./Comments";
 
 const App = () => {
@@ -16,18 +15,20 @@ const App = () => {
       dispatch.data({ ...data, isLoading });
       dispatch({ type: "text", payload: data?.title });
     }
-  }, [state.id, state.params, isLoading, dispatch]);
+  }, [
+    state.id,
+    state.params,
+    isLoading,
+    dispatch
+    /* can't include `data` here */
+  ]);
 
   return (
     <React.Fragment>
-      <h3 style={{ margin: 0, textTransform: "capitalize" }}>
+      <h1 style={{ margin: 0, textTransform: "capitalize" }}>
         {state.data?.title}
-      </h3>
-      <hr />
-      <Counter type={false} />
-      <hr />
-      <ToggleParams />
-      <hr />
+      </h1>
+      <Controls type={false} />
       <Comments />
     </React.Fragment>
   );

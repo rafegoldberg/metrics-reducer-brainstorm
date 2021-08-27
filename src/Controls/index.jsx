@@ -6,23 +6,16 @@ import StepButtons from "./StepButtons";
 import SetterInput from "./SetterInput";
 import ResetButton from "./ResetButton";
 import RandomValue from "./RandomValue";
+import ParamsBar from "./ParamsBar";
 
 const Counter = () => {
   const { state, dispatch } = useContext(ContextState);
   return (
     <React.Fragment>
-      <small className="topBar">
-        <span style={{ whiteSpace: "nowrap", marginRight: ".5em" }}>
-          <b>ID</b>:{" "}
-          <small>
-            <code>{state.id}</code>
-          </small>
-        </span>
-      </small>
       <hr />
       <div className="buttonBar">
-        <StepButtons />
         <RandomValue />
+        <StepButtons />
         <SetterInput />
         <label>
           <input
@@ -38,6 +31,9 @@ const Counter = () => {
         </label>
         <ResetButton />
       </div>
+      <hr />
+      <ParamsBar />
+      <hr />
     </React.Fragment>
   );
 };

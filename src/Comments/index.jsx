@@ -13,7 +13,7 @@ const Comment = ({ email, ...c }) => (
         </small>
         :
       </b>
-      <p style={{ marginTop: ".5em" }}>{c.body}</p>
+      <p style={{ marginTop: ".5rem" }}>{c.body}</p>
     </small>
   </li>
 );
@@ -24,7 +24,7 @@ const Comments = () => {
   if (!comments) return null;
   return (
     <React.Fragment>
-      <b>Comments</b>
+      <b style={{ marginTop: ".5rem" }}>Comments:</b>
       <ul className="Comments">
         {comments.map((c) => (
           <Comment key={`comment-${c.id}`} {...c} />
